@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Submit Problem</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script type="text/javascript" src='/static/js/jquery.min.js'></script>
+  </head>
+
+  <body>
+    <h2 style="margin-left:100px"> Welcome to HHU Algorithm Group !</h2>
+
+    <div class = 'nav navbar-nav' style="margin-left:100px">
+  		<li> <a href="/"> Home </a> </li>
+  		<li> <a href="/oj/problemlist"> ProblemList</a> </li>
+  		<li> <a href="/oj/status"> Status </a> </li>
+  		<li> <a href="/oj/ranklist"> RankList </a></li>
+      <li> <a href="/oj/standings"> Standings </a></li>
+      <li> <a href="/oj/contest"> Contest </a> </li>
+      <li> <a href="/oj/discuss"> Discuss </a></li>
+      <li> <a href="/oj/topic"> FAQ </a></li>
+  	</div>
+
+    <div style="clear:both"></div>
+  
+ <form action = '/oj/problemSubmit/{{proId}}' method="POST">
+    <div style="margin:30px 0 0 80px; width:100%">
+
+      <div style="margin:20px 0 0 10px">
+        <span> Problem: </span>
+        <input type='text' id='proId' name="proId"> 
+      </div>
+
+       <div style="margin:20px 0 0 10px">
+          <span> Language: </span>
+          <select id="lang" name="lang">
+            <option value='1'>
+              C
+            </option>
+            <option value='2'>
+              C++
+            </option>
+            <option value='3'>
+              Java
+            </option>
+            <option value='4'>
+              Python2
+            </option>
+          </select>
+        </div>
+
+        <div style="margin:20px 0 0 20px">
+          <span> Source:</span>
+          <textarea id = "sourceCode" name="sourceCode" style="height:300px; width:700px">
+
+          </textarea>
+        </div>
+
+        <div style="margin:20px 0 0 30%">
+          <input type="submit" value="submit">
+        </div>
+    </div>
+  </form>
+
+  </body>
+
+   <script type="text/javascript">
+      id = window.location.pathname.split('/')[3].toString()
+      $('#proId').val(id)
+      function submitProblem(){
+      var url = "/oj/problemSubmit/" + id
+      window.location.href = url
+    }
+    </script>
+</html>

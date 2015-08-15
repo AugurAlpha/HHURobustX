@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title> HHU Algorithm Contest </title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script type="text/javascript" src='/static/js/jquery.min.js'></script>
+    <script type="text/javascript" src='/static/js/jquery.js'></script>
+    <script type="text/javascript" src='/static/js/bootstrap.min.js'></script>
+  </head>
+
+  <body>
+
+  	<div class = 'nav navbar-nav' style="margin-left:100px">
+  		<li> <a href="/"> Home </a> </li>
+  		<li> <a href="/oj/problemlist"> OJ </a> </li>
+  		<li> <a href="/wiki"> Wiki </a> </li>
+  		<li> <a href="/train"> 训练教程  </a></li>
+  	</div>
+  </body>
+
+  <body>
+  <div class="container-fluid fr">
+    <div class="row-fluid">
+      <div class="col-md-12 header">
+      </div>
+    </div>
+
+    <div class="row-fluid">
+      <div class="col-md-1">
+      </div>
+
+      <div class="col-md-9" style="margin-top:50px;">
+        <div class="tabbable" id="tabs-923159">
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="#panel-614645" data-toggle="tab"> 添加题目 </a>
+            </li>
+
+            <li >
+              <a href="#panel-200241" data-toggle="tab">人员管理</a>
+            </li>
+
+            <li>
+              <a href="#panel-614612" data-toggle="tab">测试管理</a>
+            </li>
+          </ul>
+
+          <div class="tab-content">
+            <div class="tab-pane  active" id="panel-614645">
+              <table class="table" style="margin-top:20px;"> 
+               <div style="margin:30px 0 0 20px">
+
+                <form action='/oj/addProblem' method='POST'>
+                    <span>title: </span>
+                    <input type = 'text' style="width:500px" id="protitle" name="protitle">
+                  </br></br>
+                    <span>description: </span>
+                    <textarea id="prodesc" style="height:200px; width:500px" name='prodesc'> </textarea> 
+                   </br></br>
+                    <span>input: </span>
+                    <textarea type = 'text' style="width:500px" id="proinput" name='proinput'> </textarea>
+                 </div>
+                 </br></br>
+                    <span>output: </span>
+                    <textarea style="width:500px"  id="prooutput" name='prooutput'> </textarea>
+                 </div>
+
+                 <input class='btn btn-danger' type='submit' value="submit"/>
+                </form>
+                
+              </table>
+            </div>
+
+            <div class="tab-pane" id="panel-200241">
+              <table class="table" style="margin-top:20px;"> 
+             waiting......
+    
+              </table>
+            </div>
+
+
+            <div class="tab-pane" id="panel-614612">
+              <table class="table" style="margin-top:20px;"> 
+            waiting......
+    
+              </table>
+            </div>
+            
+            </div>
+          </div>
+        </div>
+  </div>
+</body>
+
+<script>
+   $(function(){
+      $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      // 获取已激活选项卡的名称
+      var activeTab = $(e.target).text(); 
+      // 获取先前选项卡的名称
+      var previousTab = $(e.relatedTarget).text(); 
+      $(".active-tab span").html(activeTab);
+      $(".previous-tab span").html(previousTab);
+   });
+});
+</script>
+</html>

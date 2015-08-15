@@ -1,0 +1,35 @@
+
+          /*
+ID: geek7774
+LANG: C++
+TASK: barn1
+*/
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+int M, S, C;
+const int N = 210;
+int a[N], b[N];
+
+int main(){
+    freopen("barn1.in", "r", stdin);
+    freopen("barn1.out", "w", stdout);
+	scanf("%d%d%d", &M, &S, &C);
+	for(int i = 0; i < C; ++i){
+        scanf("%d", &a[i]);
+    }
+    sort(a, a+C);
+    for(int i = 0; i < C; ++i){
+        b[i] = a[i+1] - a[i] - 1;
+    }
+
+    int ans = a[C-1] - a[0] + 1;
+    sort(b, b+C-1);
+    int i, j;
+    for(i = C-2, j = 1; i >= 0 && j < M; ++j, --i){
+        ans -= b[i];
+    }
+    printf("%d\n", ans);
+	return 0;
+}
