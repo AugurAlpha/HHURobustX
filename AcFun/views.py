@@ -104,3 +104,4 @@ def get_oj_status(request):
 	
 
 	return render_to_response('oj_status.html', {'status': p})
+
